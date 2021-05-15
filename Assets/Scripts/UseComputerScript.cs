@@ -4,13 +4,21 @@ using UnityEngine.SceneManagement;
 public class UseComputerScript : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    public GameObject PauseMenuUI;
+    public GameObject ComputerUI;
+    private TextTrigger Trigger;
+    private PauseMenu Menu;
+
+    void Start()
+    {
+        Trigger = GetComponent<TextTrigger>();
+    }
 
     void Update()
     {
-        var trigger = GetComponent<TextTrigger>();
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Close();
 
-        if (Input.GetKeyDown(KeyCode.E) && trigger.IsPlayerInTrigger) 
+        if (Input.GetKeyDown(KeyCode.E) && Trigger.IsPlayerInTrigger) 
         {
             if (!GameIsPaused)
             {
@@ -23,7 +31,7 @@ public class UseComputerScript : MonoBehaviour
     {
         if (GameIsPaused)
         {
-            PauseMenuUI.SetActive(false);
+            ComputerUI.SetActive(false);
             Time.timeScale = 1f;
             GameIsPaused = false;
         }
@@ -31,7 +39,7 @@ public class UseComputerScript : MonoBehaviour
     
     void Pause()
     {
-        PauseMenuUI.SetActive(true);
+        ComputerUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
