@@ -8,8 +8,6 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        var computer = GetComponent<UseComputerScript>();
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)

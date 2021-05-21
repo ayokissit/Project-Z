@@ -6,7 +6,6 @@ public class UseComputerScript : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject ComputerUI;
     private TextTrigger Trigger;
-    private PauseMenu Menu;
 
     void Start()
     {
@@ -29,12 +28,9 @@ public class UseComputerScript : MonoBehaviour
 
     public void Close()
     {
-        if (GameIsPaused)
-        {
-            ComputerUI.SetActive(false);
-            Time.timeScale = 1f;
-            GameIsPaused = false;
-        }
+        ComputerUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
     
     void Pause()
@@ -46,6 +42,6 @@ public class UseComputerScript : MonoBehaviour
 
     public void LoadRegister()
     {
-        Debug.Log("suck");
+        Debug.Log("urcute");
     }
 }
