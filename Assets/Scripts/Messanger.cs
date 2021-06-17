@@ -8,18 +8,12 @@ public class Messanger : MonoBehaviour
     public GameObject chatPanel, textObject;
 
     [SerializeField]
-    List<Message> messageList = new List<Message>(); 
+    List<Message> messageList = new List<Message>();
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            SendMessageToChat("Space pressed");
-    }
-
-    public void SendMessageToChat(string text)
+    public void SendMessageToChat(string secMessage)
     {
         var newMessage = new Message();
-        newMessage.text = text;
+        newMessage.text = secMessage;
 
         var newTextObj = Instantiate(textObject, chatPanel.transform);
         newMessage.textObject = newTextObj.GetComponent<Text>();
